@@ -1,20 +1,13 @@
-import { match } from "assert";
-import connect from "connect";
+import { IncomingMessage, NextFunction, NextHandleFunction } from "connect";
 import { ServerResponse } from "http";
 
-export type Logger = (
-  req: connect.IncomingMessage,
-  res: ServerResponse<connect.IncomingMessage>,
-  next: connect.NextFunction
-) => void;
-
-export const createLogger = (format: string): Logger => {
+export const createLogger = (format: string): NextHandleFunction => {
   const regexp = /:(\w+)/g;
 
   const ret = (
-    req: connect.IncomingMessage,
-    res: ServerResponse<connect.IncomingMessage>,
-    next: connect.NextFunction
+    req: IncomingMessage,
+    _: ServerResponse<IncomingMessage>,
+    next: NextFunction
   ) => {
     const msg = format.replace(regexp, (x: string, y: any): string => {
       const temp: any = req;
