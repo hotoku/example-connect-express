@@ -1,14 +1,6 @@
 import connect from "connect";
 import { ServerResponse } from "http";
-
-const logger = (
-  req: connect.IncomingMessage,
-  _: ServerResponse<connect.IncomingMessage>,
-  next: connect.NextFunction
-) => {
-  console.log("%s, %s", req.method, req.url);
-  next();
-};
+import { createLogger } from "./logger";
 
 const hello = (
   _: connect.IncomingMessage,
@@ -19,4 +11,4 @@ const hello = (
 };
 
 const app = connect();
-app.use(logger).use(hello).listen(3000);
+app.use(createLogger(":url :method")).use(hello).listen(3000);
