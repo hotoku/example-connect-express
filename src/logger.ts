@@ -20,7 +20,7 @@ export const createLogger = (format: string): Logger => {
       const temp: any = req;
       const ret: string = temp[y];
       if (ret === undefined) {
-        return "--no-value--";
+        return `${x}=undefined`;
       }
       return `${x}=${ret}`;
     });

@@ -11,4 +11,4 @@ const hello = (
 };
 
 const app = connect();
-app.use(createLogger(":url :method")).use(hello).listen(3000);
+app.use(createLogger(":hoge :url :method")).use(hello).listen(3000);
