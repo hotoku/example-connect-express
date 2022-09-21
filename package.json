@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Yasunori Horikoshi",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/connect": "^3.4.35",
+    "@types/node": "^18.7.18",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "connect": "^3.7.0"
+  }
 }
